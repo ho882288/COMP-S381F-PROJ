@@ -1,0 +1,57 @@
+
+
+
+<!DOCTYPE html>
+<html>
+<title>Rate restaurant</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
+<body>
+
+<header class="w3-container w3-teal">
+  <h1>Rate</h1>
+</header>
+
+<div class="w3-container w3-half w3-margin-top">
+  <%if (result.grades == null){%>
+  <form action="/rate" method="Post" encType="multipart/form-data" class="w3-container" style="width:100%">
+  <label class="w3-label w3-validate" for="rate">Rate this restaurant for score 1-10</label>
+  <input class="w3-input" type="number" name="rate" id="rate" min=1 max=10 required/>
+
+  <input type="hidden" name="restaurantId" value="<%=restaurantId%>"/>
+
+  <input type="submit" value="rate"/>
+  </form>
+  <%}%>
+  <%if (result.grades != null){%>
+    <%var checkRated = true;%>
+    <%for(var i=0;i<result.grades.length;i++){%>
+      <%if(result.grades[i].user != user){%>
+        <%checkRated = false;%>
+      <%}%>
+    <%}%>
+    <%if(checkRated == false){%>
+      <form action="/rate" method="Post" encType="multipart/form-data" class="w3-container" style="width:100%">
+      <label class="w3-label w3-validate" for="rate">Rate this restaurant for score 1-10</label>
+      <input class="w3-input" type="number" name="rate" id="rate" min=1 max=10 required/>
+
+      <input type="hidden" name="restaurantId" value="<%=restaurantId%>"/>
+
+      <input type="submit" value="rate"/>
+      </form>
+    <%}%>
+    <%if(checkRated != false){%>
+      <p>You are not allowed to rate more than once!</p></br>
+    <%}%>
+  <%}%>
+</body>
+
+<a href="/">Main</a>
+</br>
+<a href="/create">Create</a>
+</br>
+<a href="/logout">Logout</a>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,55 @@
+
+<!DOCTYPE html>
+<html>
+<title>Create new Restaurant</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
+<body>
+
+<header class="w3-container w3-teal">
+  <h1>New</h1>
+</header>
+
+<div class="w3-container w3-half w3-margin-top">
+
+<form action="/create" method="Post" encType="multipart/form-data" class="w3-container" style="width:100%">
+  <label class="w3-label w3-validate" for="name">Name</label>
+  <input class="w3-input" type="text" name="name" id="name" required/>
+
+  <label class="w3-label w3-validate" for="borough">Borough</label>
+  <input class="w3-input" type="text" name="borough" id="borough"/>
+
+  <label class="w3-label w3-validate" for="cuisine">Cuisine</label>
+  <input class="w3-input" type="text" name="cuisine" id="cuisine"/>
+
+  <label class="w3-label w3-validate" for="photo">Photo</label>
+  <input class="w3-input" type="file" name="photo" id="photo"/>
+
+  <label class="w3-label w3-validate" for="street">Street</label>
+  <input class="w3-input" type="text" name="street" id="street"/>
+
+  <label class="w3-label w3-validate" for="building">Building</label>
+  <input class="w3-input" type="text" name="building" id="building"/>
+
+  <label class="w3-label w3-validate" for="zipcode">Zipcode</label>
+  <input class="w3-input" type="number" name="zipcode" id="zipcode"/>
+
+  <label class="w3-label w3-validate" for="lon">GPS Corrdinates (lon.)<s/label>
+  <input class="w3-input" type="number" name="lon" step="any"id="lon"/>
+
+  <label class="w3-label w3-validate" for="lat">GPS Corrdinates (lat.)</label>
+  <input class="w3-input" type="number" name="lat" step="any"id="lat"/>
+
+  </br>
+  <input type="submit" value="Create"/>
+
+</form>
+</br>
+<a href="/search">Search</a>
+
+<a href="/logout">Logout</a>
+</div>
+
+</body>
+
+</html>

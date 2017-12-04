@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<title>Search result</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
+<body>
+
+<header class="w3-container w3-teal">
+  <h1>Search result</h1>
+</header>
+
+<div class="w3-container w3-half w3-margin-top">
+
+<ol>
+  <% for(i=0;i<restaurantInfo.length;i++) { %>
+  <li><a href="/display?id=<%=restaurantInfo[i]._id%>"><%=restaurantInfo[i].name%></a>
+  </li>
+  <% } %>
+</ol>
+
+</br>
+<a href="/">Main</a>
+</br>
+<a href="/logout">Logout</a>
+</div>
+
+</body>
+</html>

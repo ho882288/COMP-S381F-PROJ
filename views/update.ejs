@@ -1,0 +1,64 @@
+
+<!DOCTYPE html>
+<html>
+<title>Update Restaurant Info</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
+<body>
+
+<header class="w3-container w3-teal">
+  <h1>Update</h1>
+</header>
+
+<div class="w3-container w3-half w3-margin-top">
+
+<% if (result.owner == user){ %>
+<form action="/update" method="Post" encType="multipart/form-data" class="w3-container" style="width:100%">
+
+  <label class="w3-label w3-validate" for="name">Name</label>
+  <input class="w3-input" type="text" name="name" id="name" value= "<%=result.name%>"  required/>
+
+  <label class="w3-label w3-validate" for="borough">Borough</label>
+  <input class="w3-input" type="text" name="borough" id="borough"value= "<%=result.borough%>"/>
+
+  <label class="w3-label w3-validate" for="cuisine">Cuisine</label>
+  <input class="w3-input" type="text" name="cuisine" id="cuisine"value= "<%=result.cuisine%>"/>
+
+
+  <label class="w3-label w3-validate" for="photo" disabled = "true">Photo</label>
+  <input class="w3-input" type="file" name="photo" id="photo "/>
+  <% if (result.data!= ''){ %>
+  <img src="data:<%=result.photoMimetype%>;base64,<%=result.photo%>"/>
+  </br>
+  <%}%>
+  <label class="w3-label w3-validate" for="street">Street</label>
+  <input class="w3-input" type="text" name="street" id="street"value= "<%=result.address.street%>"/>
+
+  <label class="w3-label w3-validate" for="building">Building</label>
+  <input class="w3-input" type="text" name="building" id="building"value= "<%=result.address.building%>"/>
+
+  <label class="w3-label w3-validate" for="zipcode">Zipcode</label>
+  <input class="w3-input" type="number" name="zipcode" id="zipcode"value= "<%=result.address.zipcode%>"/>
+
+  <label class="w3-label w3-validate" for="lon">GPS Corrdinates (lon.)</label>
+  <input class="w3-input" type="number" step="any" name="lon" id="lon"value= "<%=result.address.coord[0]%>"/>
+
+  <label class="w3-label w3-validate" for="lat">GPS Corrdinates (lat.)</label>
+  <input class="w3-input" type="number" step="any" name="lat"  id="lat"value= "<%=result.address.coord[1]%>"/>
+
+  <input type="hidden" name="restaurantId" value="<%=result._id%>"/>
+  </br>
+  <input type="submit" value="Update"/>
+
+</form>
+<%}%>
+<% if(result.owner != user){ %>
+<p>You have no permission to this page</p>
+<%}%>
+</br>
+<a href="/">Main</a>
+</br>
+<a href="/logout">Logout</a>
+</body>
+
+</html>

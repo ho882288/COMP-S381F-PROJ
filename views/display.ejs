@@ -1,0 +1,77 @@
+
+<!DOCTYPE html>
+<html>
+<title>Display Restaurant Info</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
+<body>
+
+<header class="w3-container w3-teal">
+  <h1>Display</h1>
+</header>
+
+<div class="w3-container w3-half w3-margin-top">
+<ul>
+  <li>Name: <%=result.name%></li>
+	<li>Borough: <%=result.borough%></li>
+	<li>Cuisine: <%=result.cuisine%></li>
+  <li>
+  <% if(result.photo != ''){ %>
+  	<img src="data:<%=result.photoMimetype%>;base64,<%=result.photo%>"/>
+  <%}%>
+  </li>
+	<li>Street: <%=result.address.street%></li>
+	<li>Building: <%=result.address.building%></li>
+	<li>Zipcode: <%=result.address.zipcode%></li>
+
+  <% if(result.address.coord[0] != ''){ %>
+  <li>
+  <a href="gmap?lon=<%=result.address.coord[0]%>&lat=<%=result.address.coord[1]%>&title=<%=result.name%>">Google Map</a>
+  </li>
+  <%}%>
+
+  <li>Grades:
+  <%if (result.grades!=null){%>
+    <ol><%var i=0;%>
+		<%for(i=0;i<result.grades.length;i++){%>
+			<li><%=result.grades[i].score%> ,by <%=result.grades[i].user%></li>
+		<%}%>
+	  </ol>
+    <%}%>
+  </li>
+
+ <li>Created by <%=result.owner%></li>
+</ul>
+
+</br>
+<% if(result.owner == user ){ %>
+  <a href="/update?id=<%=result._id%>">Update</a>
+  </br>
+  <a href="/delete?id=<%=result._id%>">Delete</a>
+  </br>
+<%}%>
+
+<%if (result.grades == null){%>
+  <a href="/rate?id=<%=result._id%>">Rate</a>
+  </br>
+  <%}%>
+<%if (result.grades != null){%>
+  <%var checkRated = true;%>
+  <%for(var i=0;i<result.grades.length;i++){%>
+    <%if(result.grades[i].user != user){%>
+      <%checkRated = false;%>
+    <%}%>
+  <%}%>
+  <%if(checkRated == false){%>
+  <a href="/rate?id=<%=result._id%>">rate</a>
+  </br>
+  <%}%>
+<%}%>
+
+<a href="/">Main</a>
+</br>
+<a href="/logout">Logout</a>
+</div>
+    </body>
+
+</html>

@@ -1,0 +1,110 @@
+
+<!DOCTYPE html>
+<html>
+<title>Search</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
+<body>
+
+<header class="w3-container w3-teal">
+  <h1>Search</h1>
+</header>
+
+<div class="w3-container w3-half w3-margin-top">
+
+<form action="/search" method="Post" encType="multipart/form-data" class="w3-container" style="width:100%">
+  Name:<select name="option">
+    <% for(i=0;i<name.length;i++) { %>
+      <option value = "<%=name[i]%>"><%=name[i]%></option>
+    <% } %>
+  </select>
+  <input type="hidden" name="type" value="name"/>
+  <input type="submit" value="search"/>
+</form>
+
+<form action="/search" method="Post" encType="multipart/form-data" class="w3-container" style="width:100%">
+  Borough:
+  <select name="option">
+  <% for(i=0;i<borough.length;i++) { %>
+    <option value = "<%=borough[i]%>"><%=borough[i]%></option>
+  <% } %>
+  </select>
+  <input type="hidden" name="type" value="borough"/>
+  <input type="submit" value="search"/>
+</form>
+
+<form action="/search" method="Post" encType="multipart/form-data" class="w3-container" style="width:100%">
+  Cuisine:
+  <select name="option">
+    <% for(i=0;i<cuisine.length;i++) { %>
+      <option value = "<%=cuisine[i]%>"><%=cuisine[i]%></option>
+    <% } %>
+  </select>
+<input type="hidden" name="type" value="cuisine"/>
+<input type="submit" value="search"/>
+</form>
+
+<form action="/search" method="Post" encType="multipart/form-data" class="w3-container" style="width:100%">
+  Street:
+  <select name="option">
+    <% for(i=0;i<street.length;i++) { %>
+      <option value = "<%=street[i]%>"><%=street[i]%></option>
+    <% } %>
+  </select>
+<input type="hidden" name="type" value="address.street"/>
+<input type="submit" value="search"/>
+</form>
+
+<form action="/search" method="Post" encType="multipart/form-data" class="w3-container" style="width:100%">
+  Building:
+  <select name="option">
+    <% for(i=0;i<building.length;i++) { %>
+      <option value = "<%=building[i]%>"><%=building[i]%></option>
+    <% } %>
+  </select>
+<input type="hidden" name="type" value="address.building"/>
+<input type="submit" value="search"/>
+</form>
+
+<form action="/search" method="Post" encType="multipart/form-data" class="w3-container" style="width:100%">
+  Zipcode:
+  <select name="option">
+    <% for(i=0;i<zipcode.length;i++) { %>
+      <option value = "<%=zipcode[i]%>"><%=zipcode[i]%></option>
+    <% } %>
+  </select>
+<input type="hidden" name="type" value="address.zipcode"/>
+<input type="submit" value="search"/>
+</form>
+
+<form action="/search" method="Post" encType="multipart/form-data" class="w3-container" style="width:100%">
+  Score:
+  <select name="option">
+    <% for(i=0;i<score.length;i++) { %>
+      <option value = "<%=score[i]%>"><%=score[i]%></option>
+    <% } %>
+  </select>
+<input type="hidden" name="type" value="grades.score"/>
+<input type="submit" value="search"/>
+</form>
+
+
+<form action="/search" method="Post" encType="multipart/form-data" class="w3-container" style="width:100%">
+  Owner:
+  <select name="option">
+    <% for(i=0;i<owner.length;i++) { %>
+      <option value = "<%=owner[i]%>"><%=owner[i]%></option>
+    <% } %>
+  </select>
+  <input type="hidden" name="type" value="owner"/>
+<input type="submit" value="search"/>
+</form>
+
+</br>
+<a href="/">Main</a>
+</br>
+<a href="/logout">Logout</a>
+</div>
+</body>
+
+</html>
